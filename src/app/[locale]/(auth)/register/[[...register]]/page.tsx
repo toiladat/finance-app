@@ -4,7 +4,7 @@
 const register = async () => {
   return (
     <div className="flex flex-col items-center relative pt-20">
-
+      register
     </div>
   );
 };

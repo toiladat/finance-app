@@ -1,3 +1,4 @@
+'use client';
 import { Footer } from '@/components/header-footer/Footer';
 
 export default async function Layout(props: {

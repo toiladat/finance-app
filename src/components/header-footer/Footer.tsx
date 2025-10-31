@@ -1,10 +1,15 @@
 'use client';
-import { HouseIcon } from 'lucide-react';
+import { Bot, ChartLine, ClipboardCheck, HouseIcon, Target } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 const tabBar = [
-  { icon: HouseIcon, title: 'Trang chủ', to: '/' },
+  { icon: HouseIcon, title: 'Trang chủ', to: '/home' },
+  { icon: Bot, title: 'AI', to: '/ai' },
+  { icon: Target, title: 'Mục tiêu', to: '/target' },
+  { icon: ClipboardCheck, title: 'Lời nhắc', to: '/reminder' },
+  { icon: ChartLine, title: 'Thống kê', to: '/statistic' },
+
 ];
 
 export function Footer() {
@@ -15,7 +20,7 @@ export function Footer() {
 
   return (
     <footer
-      className="absolute bottom-0 w-full  flex justify-center  space-x-4"
+      className="absolute bottom-0 w-full  flex justify-center gap-4  space-x-4 mb-2" // cho z index cao hơn
       style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}
     >
       {tabBar.map((item) => {
@@ -25,10 +30,10 @@ export function Footer() {
             href={item.to}
             key={item.title}
             prefetch
-            className={`flex flex-col items-center ${pathName === item.to ? '' : 'opacity-50'}`}
+            className={`flex flex-col gap-1 items-center ${pathName === item.to ? '' : 'opacity-50'}`}
           >
             <Icon className="text-white " />
-            <span className="text-white font-[500] text-[0.5625rem]">
+            <span className="text-white font-[700] text-[0.5625rem]">
               {item.title}
             </span>
           </Link>
