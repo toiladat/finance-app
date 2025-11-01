@@ -44,10 +44,10 @@ const Page = () => {
       const data = await res.json();
       const reply = (data?.data as string) ?? 'Xin lỗi, mình chưa hiểu.';
       setMessages(prev => [...prev, { role: 'assistant', content: reply }]);
-    } catch (error) {
+    } catch {
       setMessages(prev => [
         ...prev,
-        { role: 'assistant', content: error?.message ?? 'Xin lỗi, mình chưa hiểu.' },
+        { role: 'assistant', content: 'Xin lỗi, mình chưa hiểu.' },
       ]);
     } finally {
       setLoading(false);
