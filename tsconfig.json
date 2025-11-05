@@ -72,6 +72,7 @@
     "noEmit": true, // Skip emitting files (Next.js handles this)
     "plugins": [{ "name": "next" }] // Enable Next.js TypeScript plugin
   },
+  "typeRoots": ["./node_modules/@types", "./src/types"],
 
   // Files to include/exclude from the project
   "exclude": ["node_modules", "**/*.spec.ts", "**/*.e2e.ts"],

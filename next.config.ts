@@ -16,6 +16,7 @@ const config = withNextIntl(baseConfig);
 // ✅ Cấu hình cuối cùng (đã bổ sung phần ignore lỗi build)
 const finalConfig = {
   ...config,
+  transpilePackages: ['react-map-gl'],
 
   // 🚫 Bỏ qua kiểm tra ESLint & TypeScript khi build (giúp Docker build không fail)
   eslint: {

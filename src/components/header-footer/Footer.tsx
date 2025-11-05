@@ -1,6 +1,6 @@
 'use client';
 
-import { Bot, ChartLine, ClipboardCheck, HouseIcon, Landmark, Target } from 'lucide-react';
+import { Bot, ChartLine, ClipboardCheck, HouseIcon, Landmark, MapPinned, Target } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import Dock from '../Dock';
@@ -12,6 +12,7 @@ const tabBar = [
   { icon: ClipboardCheck, title: 'Lời nhắc', to: '/reminder' },
   { icon: ChartLine, title: 'Thống kê', to: '/statistic' },
   { icon: Landmark, title: 'Giao dịch', to: '/transaction' },
+  { icon: MapPinned, title: 'Bản đồ', to: '/map' },
 ];
 
 export function Footer() {
