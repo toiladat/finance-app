@@ -27,9 +27,10 @@ export default function TransactionPage() {
         const res = await fetch('https://tdat9663.app.n8n.cloud/webhook/webhook-2', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ action: 'transaction' }),
+          body: JSON.stringify({ action: 'transaction-detail' }),
         });
         const json = await res.json();
+        console.log(json);
         setData(json);
       } catch (err) {
         console.error('❌ Lỗi khi fetch:', err);
@@ -131,8 +132,8 @@ export default function TransactionPage() {
             <TableHeader>
               <TableRow className="bg-cyan-950/40">
                 <TableHead className="w-[120px] text-cyan-300">Ngày</TableHead>
-                <TableHead className="text-cyan-300">Tiền vào</TableHead>
-                <TableHead className="text-cyan-300">Tiền ra</TableHead>
+                <TableHead className="text-cyan-300">Số tiền</TableHead>
+                <TableHead className="text-cyan-300">Loại giao dịch</TableHead>
                 <TableHead className="text-cyan-300 text-center">Nội dung</TableHead>
               </TableRow>
             </TableHeader>
@@ -143,15 +144,15 @@ export default function TransactionPage() {
                     key={i}
                     className="hover:bg-cyan-900/30 transition-colors border-cyan-800/40"
                   >
-                    <TableCell className="font-medium">{item.date}</TableCell>
-                    <TableCell className="text-green-400">
-                      {Number(item.income || 0).toLocaleString()}
+                    <TableCell className="font-medium">{item['Ngày giao dịch']}</TableCell>
+                    <TableCell className={cn(item['Loại'] === 'Tiền ra' ? 'text-red-400' : 'text-green-400')}>
+                      {Number(item['Số tiền'] || 0).toLocaleString()}
                     </TableCell>
-                    <TableCell className="text-red-400">
-                      {Number(item.outcome || 0).toLocaleString()}
+                    <TableCell className={cn(item['Loại'] === 'Tiền ra' ? 'text-red-400' : 'text-green-400')}>
+                      {item['Loại'] || '-'}
                     </TableCell>
                     <TableCell className="text-center text-slate-200">
-                      {item.content || '-'}
+                      {item['Nội dung thanh toán'] || '-'}
                     </TableCell>
                   </TableRow>
                 ))

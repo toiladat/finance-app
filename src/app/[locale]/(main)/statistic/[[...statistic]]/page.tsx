@@ -57,7 +57,7 @@ export default function TechChartPage() {
     outcome: { color: 'hsl(260 90% 65%)', label: 'Khoản thu' },
   };
   const statistic = data.filter((item) => {
-    const date = new Date(item?.date);
+    const date = new Date(item?.date || new Date());
     const referenceDate = new Date('2025-09-30');
     let daysToSubtract = 90;
     if (timeRange === '30d') {
