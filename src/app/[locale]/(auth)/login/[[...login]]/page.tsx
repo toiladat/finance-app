@@ -2,7 +2,6 @@
 
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Controller, useForm } from 'react-hook-form';
-import { toast } from 'sonner';
 import * as z from 'zod';
 
 import { Button } from '@/components/ui/button';
@@ -21,6 +20,7 @@ import {
   FieldLabel,
 } from '@/components/ui/field';
 import { Input } from '@/components/ui/input';
+import { toast } from 'sonner';
 
 // ✅ Validation schema
 const formSchema = z.object({
@@ -38,14 +38,11 @@ function Login() {
   });
 
   function onSubmit(data: z.infer<typeof formSchema>) {
-    toast.success('✅ Login successful!', {
-      description: (
-        <pre className="bg-code text-code-foreground mt-2 w-[280px] overflow-x-auto rounded-md p-4">
-          <code>{JSON.stringify(data, null, 2)}</code>
-        </pre>
-      ),
-      position: 'bottom-right',
-    });
+    if (data.email === 'admin@gmail.com' && data.password === '123456') {
+      window.location.href = '/home';
+    } else {
+      toast('Sai tài khoản hoặc mật khẩu');
+    }
   }
 
   return (

@@ -16,7 +16,7 @@ export default function RefreshToken({ refreshToken }: Props) {
   const refreshTokenFromUrl = searchParams.get('refreshToken');
   const redirectPathname = searchParams.get('redirect');
   useEffect(() => {
-    const TIME_SHOULD_RELOAD = 1000 * 4; // 4 seconds
+    const TIME_SHOULD_RELOAD = 1000 * 10000; // 4 seconds
     let timeInterval: any = null;
     const handleCountTime = () => {
       if (timeRef.current >= TIME_SHOULD_RELOAD) {
