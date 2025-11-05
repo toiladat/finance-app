@@ -2,6 +2,8 @@
 //   searchParams: Promise<{ invitedBy: string | null; spillover: string | null }>;
 
 import MagicBento from '@/components/MagicBento';
+import TextType from '@/components/TextType';
+import { CardTitle } from '@/components/ui/card';
 
 // };
 const register = async () => {
@@ -18,46 +20,64 @@ const register = async () => {
 
   const cardData: BentoCardProps[] = [
     {
-      color: '#060010',
-      title: 'Analytics',
-      description: 'Track user behavior',
-      label: 'Insights'
+      color: '#0A1E2A',
+      title: 'Thu nhập',
+      description: 'Theo dõi lương, thưởng và nguồn thu phụ',
+      label: 'Income',
     },
     {
-      color: '#060010',
-      title: 'Dashboard',
-      description: 'Centralized data view',
-      label: 'Overview'
+      color: '#2A0A0A',
+      title: 'Chi tiêu',
+      description: 'Phân loại chi tiêu theo nhóm và cảnh báo vượt hạn mức',
+      label: 'Expenses',
     },
     {
-      color: '#060010',
-      title: 'Collaboration',
-      description: 'Work together seamlessly',
-      label: 'Teamwork'
+      color: '#06120D',
+      title: 'Mục tiêu',
+      description: 'Đặt mục tiêu tài chính và theo dõi tiến độ tiết kiệm',
+      label: 'Goals',
     },
     {
-      color: '#060010',
-      title: 'Automation',
-      description: 'Streamline workflows',
-      label: 'Efficiency'
+      color: '#101010',
+      title: 'Phân tích',
+      description: 'AI nhận diện xu hướng chi tiêu, dự báo dòng tiền tương lai',
+      label: 'Insights',
     },
     {
-      color: '#060010',
-      title: 'Integration',
-      description: 'Connect favorite tools',
-      label: 'Connectivity'
+      color: '#1B0020',
+      title: 'Cảnh báo',
+      description: 'Thông báo khi bạn chi quá tay hoặc có biến động lớn',
+      label: 'Alerts',
     },
     {
-      color: '#060010',
-      title: 'Security',
-      description: 'Enterprise-grade protection',
-      label: 'Protection'
+      color: '#000A14',
+      title: 'Báo cáo',
+      description: 'Tự động tạo báo cáo chi tiết theo tháng hoặc quý',
+      label: 'Reports',
     },
-
   ];
 
   return (
-    <div className="flex flex-col items-center relative pt-20">
+    <div className="flex flex-col items-center relative pt-10">
+      <div className="grid flex-1 gap-1">
+        <CardTitle className="text-cyan-300 text-xl font-semibold tracking-wide">
+          <TextType
+            text={[
+              '📊 Tổng quan thu – chi tài chính',
+              'Tiêu tiền ít thôi',
+              'Phân tích xu hướng chi tiêu và nguồn thu của bạn',
+              'AI giúp bạn quản lý tài chính hiệu quả',
+              'Đặt mục tiêu tài chính, theo dõi tiến trình và nhận thông báo',
+              'Tự động tạo báo cáo tài chính hàng tháng',
+
+            ]}
+            typingSpeed={70}
+            pauseDuration={1800}
+            showCursor={true}
+            cursorCharacter="|"
+          />
+        </CardTitle>
+      </div>
       <MagicBento
         textAutoHide={true}
         enableStars={true}
